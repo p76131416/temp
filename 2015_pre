@@ -1,0 +1,43 @@
+'`define abs(a,b) 
+module SET ( clk , rst, en, central, radius, mode, busy, valid, candidate );
+
+input clk, rst;
+input en;
+input [23:0] central;
+input [11:0] radius;
+input [1:0] mode;
+output reg busy;
+output reg valid;
+output reg [7:0] candidate;
+
+reg [23:0] cent;
+reg [11:0] radiu;
+reg [1:0] mod;
+
+always @(posedge clk or posedge rst) begin
+	if (!rst) begin
+		busy <= 0;
+		valid <= 0;
+	end
+	else begin
+		if (en) begin
+			busy <= 1;
+			mod <= mode;
+			cent <= central;
+			radiu <= radius; 
+		end
+		if (busy) begin
+			case(mod):
+				2'b00:begin
+					for (integer i=0 ; i <= 8 ; i++)begin
+						for (integer j=0 ; j <= 8 ; j++)begin
+
+				end
+				2'b01:
+				2'b10:
+				2'b11:
+			endcase
+		end
+	end
+end
+endmodule
